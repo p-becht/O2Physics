@@ -155,9 +155,9 @@ DECLARE_SOA_TABLE(HfCollIdLCLite, "AOD", "HFCOLLIDLCLITE",
 
 DECLARE_SOA_TABLE(HfCandLcFulls, "AOD", "HFCANDLCFULL",
                   full::CollisionId,
-                  collision::PosX,
-                  collision::PosY,
-                  collision::PosZ,
+                  collision::PosX, // Primary vertex
+                  collision::PosY, // Primary vertex
+                  collision::PosZ, // Primary vertex
                   hf_cand::NProngsContributorsPV,
                   hf_cand::XSecondaryVertex,
                   hf_cand::YSecondaryVertex,
@@ -188,9 +188,9 @@ DECLARE_SOA_TABLE(HfCandLcFulls, "AOD", "HFCANDLCFULL",
                   hf_cand::PxProng2,
                   hf_cand::PyProng2,
                   hf_cand::PzProng2,
-                  hf_cand::ImpactParameter0,
-                  hf_cand::ImpactParameter1,
-                  hf_cand::ImpactParameter2,
+                  hf_cand::ImpactParameter0, // DCAxy 
+                  hf_cand::ImpactParameter1, // DCAxy
+                  hf_cand::ImpactParameter2, // DCAxy
                   hf_cand::ErrorImpactParameter0,
                   hf_cand::ErrorImpactParameter1,
                   hf_cand::ErrorImpactParameter2,
@@ -209,7 +209,7 @@ DECLARE_SOA_TABLE(HfCandLcFulls, "AOD", "HFCANDLCFULL",
                   full::NSigTpcTofKa1,
                   full::NSigTpcTofPi2,
                   full::NSigTpcTofPr2,
-                  full::CandidateSelFlag,
+                  full::CandidateSelFlag, // Defines if LcToPKpi (1) or LcToPiKp (2)
                   full::M,
                   full::Pt,
                   full::P,
