@@ -442,10 +442,14 @@ DECLARE_SOA_DYNAMIC_COLUMN(PVectorProng0, pVectorProng0, //!
                            [](float px, float py, float pz) -> std::array<float, 3> { return std::array{px, py, pz}; });
 DECLARE_SOA_COLUMN(ImpactParameter0, impactParameter0, float);                     //!
 DECLARE_SOA_COLUMN(ErrorImpactParameter0, errorImpactParameter0, float);           //!
+DECLARE_SOA_COLUMN(SecondaryDCA0, secondaryDCA0, float);                     //!
+DECLARE_SOA_COLUMN(ErrorSecondaryDCA0, errorSecondaryDCA0, float);           //!
 DECLARE_SOA_DYNAMIC_COLUMN(ImpactParameterNormalised0, impactParameterNormalised0, //!
                            [](float dca, float err) -> float { return dca / err; });
 DECLARE_SOA_COLUMN(ImpactParameterZ0, impactParameterZ0, float);                     //!
 DECLARE_SOA_COLUMN(ErrorImpactParameterZ0, errorImpactParameterZ0, float);           //!
+DECLARE_SOA_COLUMN(SecondaryDCAZ0, secondaryDCAZ0, float);                     //!
+DECLARE_SOA_COLUMN(ErrorSecondaryDCAZ0, errorSecondaryDCAZ0, float);           //!
 DECLARE_SOA_DYNAMIC_COLUMN(ImpactParameterZNormalised0, impactParameterZNormalised0, //!
                            [](float dca, float err) -> float { return dca / err; });
 DECLARE_SOA_COLUMN(PxProng1, pxProng1, float); //!
@@ -459,10 +463,14 @@ DECLARE_SOA_DYNAMIC_COLUMN(PVectorProng1, pVectorProng1, //!
                            [](float px, float py, float pz) -> std::array<float, 3> { return std::array{px, py, pz}; });
 DECLARE_SOA_COLUMN(ImpactParameter1, impactParameter1, float);                     //!
 DECLARE_SOA_COLUMN(ErrorImpactParameter1, errorImpactParameter1, float);           //!
+DECLARE_SOA_COLUMN(SecondaryDCA1, secondaryDCA1, float);                     //!
+DECLARE_SOA_COLUMN(ErrorSecondaryDCA1, errorSecondaryDCA1, float);           //!
 DECLARE_SOA_DYNAMIC_COLUMN(ImpactParameterNormalised1, impactParameterNormalised1, //!
                            [](float dca, float err) -> float { return dca / err; });
 DECLARE_SOA_COLUMN(ImpactParameterZ1, impactParameterZ1, float);                     //!
 DECLARE_SOA_COLUMN(ErrorImpactParameterZ1, errorImpactParameterZ1, float);           //!
+DECLARE_SOA_COLUMN(SecondaryDCAZ1, secondaryDCAZ1, float);                     //!
+DECLARE_SOA_COLUMN(ErrorSecondaryDCAZ1, errorSecondaryDCAZ1, float);           //!
 DECLARE_SOA_DYNAMIC_COLUMN(ImpactParameterZNormalised1, impactParameterZNormalised1, //!
                            [](float dca, float err) -> float { return dca / err; });
 DECLARE_SOA_COLUMN(PxProng2, pxProng2, float); //!
@@ -476,10 +484,14 @@ DECLARE_SOA_DYNAMIC_COLUMN(PVectorProng2, pVectorProng2, //!
                            [](float px, float py, float pz) -> std::array<float, 3> { return std::array{px, py, pz}; });
 DECLARE_SOA_COLUMN(ImpactParameter2, impactParameter2, float);                     //!
 DECLARE_SOA_COLUMN(ErrorImpactParameter2, errorImpactParameter2, float);           //!
+DECLARE_SOA_COLUMN(SecondaryDCA2, secondaryDCA2, float);                     //!
+DECLARE_SOA_COLUMN(ErrorSecondaryDCA2, errorSecondaryDCA2, float);           //!
 DECLARE_SOA_DYNAMIC_COLUMN(ImpactParameterNormalised2, impactParameterNormalised2, //!
                            [](float dca, float err) -> float { return dca / err; });
 DECLARE_SOA_COLUMN(ImpactParameterZ2, impactParameterZ2, float);                     //!
 DECLARE_SOA_COLUMN(ErrorImpactParameterZ2, errorImpactParameterZ2, float);           //!
+DECLARE_SOA_COLUMN(SecondaryDCAZ2, secondaryDCAZ2, float);                     //!
+DECLARE_SOA_COLUMN(ErrorSecondaryDCAZ2, errorSecondaryDCAZ2, float);           //!
 DECLARE_SOA_DYNAMIC_COLUMN(ImpactParameterZNormalised2, impactParameterZNormalised2, //!
                            [](float dca, float err) -> float { return dca / err; });
 DECLARE_SOA_COLUMN(NProngsContributorsPV, nProngsContributorsPV, uint8_t); //! number of prongs contributing to the primary-vertex reconstruction
@@ -880,6 +892,10 @@ DECLARE_SOA_TABLE(HfCand3ProngBase, "AOD", "HFCAND3PBASE", //!
                   hf_cand::ErrorImpactParameter0, hf_cand::ErrorImpactParameter1, hf_cand::ErrorImpactParameter2,
                   hf_cand::ImpactParameterZ0, hf_cand::ImpactParameterZ1, hf_cand::ImpactParameterZ2,
                   hf_cand::ErrorImpactParameterZ0, hf_cand::ErrorImpactParameterZ1, hf_cand::ErrorImpactParameterZ2,
+                  hf_cand::SecondaryDCA0, hf_cand::SecondaryDCA1, hf_cand::SecondaryDCA2,
+                  hf_cand::ErrorSecondaryDCA0, hf_cand::ErrorSecondaryDCA1, hf_cand::ErrorSecondaryDCA2,
+                  hf_cand::SecondaryDCAZ0, hf_cand::SecondaryDCAZ1, hf_cand::SecondaryDCAZ2,
+                  hf_cand::ErrorSecondaryDCAZ0, hf_cand::ErrorSecondaryDCAZ1, hf_cand::ErrorSecondaryDCAZ2,
                   hf_track_index::Prong0Id, hf_track_index::Prong1Id, hf_track_index::Prong2Id, hf_cand::NProngsContributorsPV,
                   hf_track_index::HFflag,
                   /* dynamic columns */

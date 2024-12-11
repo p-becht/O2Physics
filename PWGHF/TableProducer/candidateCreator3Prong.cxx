@@ -230,6 +230,17 @@ struct HfCandidateCreator3Prong {
       trackParVar1.getPxPyPzGlo(pvec1);
       trackParVar2.getPxPyPzGlo(pvec2);
 
+      // get DCA to secondary vertex
+      o2::dataformats::DCA secondaryDCA0;
+      o2::dataformats::DCA secondaryDCA1;
+      o2::dataformats::DCA secondaryDCA2;
+      o2::dataformats::VertexBase secondaryVertexBase;
+      secondaryVertexBase.setPos({secondaryVertex[0], secondaryVertex[1], secondaryVertex[2]});
+      secondaryVertexBase.setCov(covMatrixPCA[0], covMatrixPCA[1], covMatrixPCA[2], covMatrixPCA[3], covMatrixPCA[4], covMatrixPCA[5]);
+      o2::base::Propagator::Instance()->propagateToDCABxByBz(secondaryVertexBase, trackParVar0, 2.f, matCorr, secondaryDCA0);
+      o2::base::Propagator::Instance()->propagateToDCABxByBz(secondaryVertexBase, trackParVar1, 2.f, matCorr, secondaryDCA1);
+      o2::base::Propagator::Instance()->propagateToDCABxByBz(secondaryVertexBase, trackParVar2, 2.f, matCorr, secondaryDCA2);
+
       // get track impact parameters
       // This modifies track momenta!
       auto primaryVertex = getPrimaryVertex(collision);
@@ -298,6 +309,10 @@ struct HfCandidateCreator3Prong {
                        std::sqrt(impactParameter0.getSigmaY2()), std::sqrt(impactParameter1.getSigmaY2()), std::sqrt(impactParameter2.getSigmaY2()),
                        impactParameter0.getZ(), impactParameter1.getZ(), impactParameter2.getZ(),
                        std::sqrt(impactParameter0.getSigmaZ2()), std::sqrt(impactParameter1.getSigmaZ2()), std::sqrt(impactParameter2.getSigmaZ2()),
+                       secondaryDCA0.getY(), secondaryDCA1.getY(), secondaryDCA2.getY(),
+                       std::sqrt(secondaryDCA0.getSigmaY2()), std::sqrt(secondaryDCA1.getSigmaY2()), std::sqrt(secondaryDCA2.getSigmaY2()),
+                       secondaryDCA0.getZ(), secondaryDCA1.getZ(), secondaryDCA2.getZ(),
+                       std::sqrt(secondaryDCA0.getSigmaZ2()), std::sqrt(secondaryDCA1.getSigmaZ2()), std::sqrt(secondaryDCA2.getSigmaZ2()),
                        rowTrackIndexProng3.prong0Id(), rowTrackIndexProng3.prong1Id(), rowTrackIndexProng3.prong2Id(), nProngsContributorsPV,
                        rowTrackIndexProng3.hfflag());
 
