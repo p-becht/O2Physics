@@ -237,9 +237,9 @@ struct HfCandidateCreator3Prong {
       o2::dataformats::VertexBase secondaryVertexBase;
       secondaryVertexBase.setPos({secondaryVertex[0], secondaryVertex[1], secondaryVertex[2]});
       secondaryVertexBase.setCov(covMatrixPCA[0], covMatrixPCA[1], covMatrixPCA[2], covMatrixPCA[3], covMatrixPCA[4], covMatrixPCA[5]);
-      o2::base::Propagator::Instance()->propagateToDCABxByBz(secondaryVertexBase, trackParVar0, 2.f, matCorr, secondaryDCA0);
-      o2::base::Propagator::Instance()->propagateToDCABxByBz(secondaryVertexBase, trackParVar1, 2.f, matCorr, secondaryDCA1);
-      o2::base::Propagator::Instance()->propagateToDCABxByBz(secondaryVertexBase, trackParVar2, 2.f, matCorr, secondaryDCA2);
+      o2::base::Propagator::Instance()->propagateToDCABxByBz(secondaryVertexBase, trackParVar0, 2.f, matCorr, &secondaryDCA0);
+      o2::base::Propagator::Instance()->propagateToDCABxByBz(secondaryVertexBase, trackParVar1, 2.f, matCorr, &secondaryDCA1);
+      o2::base::Propagator::Instance()->propagateToDCABxByBz(secondaryVertexBase, trackParVar2, 2.f, matCorr, &secondaryDCA2);
 
       // get track impact parameters
       // This modifies track momenta!
